@@ -11,20 +11,22 @@ import sys
 #     ['X', 'M', 'A', 'S', '.', 'S'],
 #     ['.', 'X', '.', '.', '.', '.']
 # ]
-
-
-ARRAY = [
-    ['M', 'M', 'M', 'S', 'X', 'X', 'M', 'A', 'S', 'M'],
-    ['M', 'S', 'A', 'M', 'X', 'M', 'S', 'M', 'S', 'A'],
-    ['A', 'M', 'X', 'S', 'X', 'M', 'A', 'A', 'M', 'M'],
-    ['M', 'S', 'A', 'M', 'A', 'S', 'M', 'S', 'M', 'X'],
-    ['X', 'M', 'A', 'S', 'A', 'M', 'X', 'A', 'M', 'M'],
-    ['X', 'X', 'A', 'M', 'M', 'X', 'X', 'A', 'M', 'A'],
-    ['S', 'M', 'S', 'M', 'S', 'A', 'S', 'X', 'S', 'S'],
-    ['S', 'A', 'X', 'A', 'M', 'A', 'S', 'A', 'A', 'A'],
-    ['M', 'A', 'M', 'M', 'M', 'X', 'M', 'M', 'M', 'M'],
-    ['M', 'X', 'M', 'X', 'A', 'X', 'M', 'A', 'S', 'X']
-]
+# Harder input with 18 Matches
+# ARRAY = [
+#     ['M', 'M', 'M', 'S', 'X', 'X', 'M', 'A', 'S', 'M'],
+#     ['M', 'S', 'A', 'M', 'X', 'M', 'S', 'M', 'S', 'A'],
+#     ['A', 'M', 'X', 'S', 'X', 'M', 'A', 'A', 'M', 'M'],
+#     ['M', 'S', 'A', 'M', 'A', 'S', 'M', 'S', 'M', 'X'],
+#     ['X', 'M', 'A', 'S', 'A', 'M', 'X', 'A', 'M', 'M'],
+#     ['X', 'X', 'A', 'M', 'M', 'X', 'X', 'A', 'M', 'A'],
+#     ['S', 'M', 'S', 'M', 'S', 'A', 'S', 'X', 'S', 'S'],
+#     ['S', 'A', 'X', 'A', 'M', 'A', 'S', 'A', 'A', 'A'],
+#     ['M', 'A', 'M', 'M', 'M', 'X', 'M', 'M', 'M', 'M'],
+#     ['M', 'X', 'M', 'X', 'A', 'X', 'M', 'A', 'S', 'X']
+# ]
+#Input from file. Answer 2517 was correct
+with open("input.txt", "r") as file:
+    ARRAY = [list(line.strip()) for line in file]
 
 # number of rows
 NUM_ROWS = len(ARRAY)
@@ -42,8 +44,6 @@ print(f"Array rows: {NUM_ROWS}, columns {NUM_COLS}, diagonals: {NUM_DIAGONALS}")
 print ("Input array is: ")
 for line in ARRAY:
     print(line)
-#str_to_check = "XMASXMASXXMMAASS"
-#print (str_to_check.count(KEY))
 
 def count_matches(key: str, str_to_check: str) -> int:
     if len(str_to_check) < len(key):
