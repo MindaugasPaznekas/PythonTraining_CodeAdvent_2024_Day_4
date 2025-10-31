@@ -48,7 +48,7 @@ for line in ARRAY:
 def count_matches(key: str, str_to_check: str) -> int:
     if len(str_to_check) < len(key):
         return 0
-    # print(f"Found {key}, {str_to_check} times in row:#{str_to_check.count(key)}")
+    # print(f"Found {key}, {str_to_check} times in row:#{str_to_check.count(key)}") # debug output
     return str_to_check.count(key)
 
 # loop through lines to look for matching string (lines do not need reversing [reversing it had funny consequences :D])
@@ -119,7 +119,6 @@ def find_diag_line_left_to_right(index: int) -> str:
     line = ''
     # for first indexes look for 0...n column while looping through rows, moving to the left
     # after index goes over NUM_COLS we still loop through rows without accessing column element until it is decremented to "possible" value
-    #print(f"start index: {index}")
     for row_i, row in enumerate(ARRAY):
         if index < 0:  # done we cannot move left anymore
             break
@@ -128,7 +127,6 @@ def find_diag_line_left_to_right(index: int) -> str:
             index -= 1 # decrement so we move left within next row
             continue
         line += row[index]
-        #print(f"diag: row_i{row_i} {index}: {row[index]} new line: {line}")
         index -= 1  # decrement so we move left within next row
     return line
 
@@ -163,6 +161,7 @@ def search_array() -> None:
 
     print(f"Little Elf found {KEY} in provided puzzle {total_findings} times!")
 
+# run search and expect hope for the best
 search_array()
 
 
